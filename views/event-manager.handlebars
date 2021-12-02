@@ -1,0 +1,221 @@
+
+
+<section class="container">
+	<div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+
+		<div class="lh-1">
+			<h1 class="h5 mb-0 text-center lh-1 event-mgr-header"><i class="bi bi-bookmark-star text-primary"></i>&nbsp;Manage Events</h1>
+			<small>Since 2011</small>
+		</div>
+	</div>
+
+
+
+	<div class="my-3 p-3 bg-body rounded shadow-sm">
+		<h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+
+		<div class="row gx-5 align-items-center justify-content-center my-3">
+			<div class="col-md-6">
+
+							<input
+					type="text"
+					id="from_date"
+					placeholder="From Date"
+					autocomplete="off"
+				/></div>
+        {{!-- <div class="col-md-6">
+        <input type="time" id="from_time" name="appt"></div> --}}     
+
+		</div>
+
+
+		<div class="row gx-5 align-items-center justify-content-center my-3">
+
+			<div class="col-md-6">
+
+				<input
+					type="text"
+					id="to_date"
+					placeholder="To Date"
+					autocomplete="off"
+				
+	
+			/></div>
+
+			{{!-- <div class="col-md-6">
+				<input type="time" id="from_time" name="appt">
+			</div>
+		</div> --}}
+		{{!-- <div class="col-md-1"></div> --}}
+
+
+
+
+	</div>
+	<div class="col-md-3 text-center">
+		<a class="btn btn-primary text-light" id="viewEventsButton">View Events</a>
+	</div>
+	</div>
+	<div id="events-holder">
+
+	</div>
+	<small class="d-block text-end mt-3">
+		<a href="#" style='color:white'>Updates</a>
+	</small>
+
+	</div>
+	<!----->
+
+	<div class="col-lg-8 col-xl-6 bg-purple rounded shadow-sm">
+		<h1 class="h5 mb-2  lh-1 text-left event-mgr-header"><i class="bi bi-bookmark-star text-primary"></i>&nbsp;Create New Event</h1>
+		<!-- * * * * * * * * * * * * * * *-->
+		<!-- * * SB Forms Contact Form * *-->
+		<!-- * * * * * * * * * * * * * * *-->
+		<!-- This form is pre-integrated with SB Forms.-->
+		<!-- To make this form functional, sign up at-->
+		<!-- https://startbootstrap.com/solution/contact-forms-->
+		<!-- to get an API token!-->
+		<form id="eventform" name="eventform">
+			<!-- Name input-->
+			<div class="form-floating mb-3">
+
+				<input class="form-control" id="event_title" type="text" placeholder="Enter the event title..."
+					data-sb-validations="required" />
+				<label for="event_title">Event Title</label>
+			</div>
+
+			<!-- Message input-->
+			<div class="form-floating mb-4">
+				<textarea class="form-control" id="event_details" type="text" placeholder="Enter event details here..."
+					style="height: 5rem"></textarea>
+				<label for="event_details">Event Details</label>
+			</div>
+
+			<div class="row gx-5 align-items-center justify-content-center my-3">
+				<div class="col-md-6">
+
+					<input type="text" id="event_start_dt" placeholder="From Date" autocomplete="off" />
+				</div>
+				<div class="col-md-6">
+					<input type="time" id="event_start_time" name="appt">
+				</div>
+
+			</div>
+
+
+			<div class="row gx-5 align-items-center justify-content-center my-3">
+				<div class="col-md-6">
+
+					<input type="text" id="event_end_dt" placeholder="To Date" autocomplete="off" />
+				</div>
+
+				<div class="col-md-6">
+					<input type="time" id="event_end_time" name="appt">
+				</div>
+			</div>
+
+			<!-- Email address input-->
+			{{!-- <div class="form-floating mb-3">
+				<input type="text" id="event_start_date" placeholder="Event Date" autocomplete="off" />
+
+
+			</div> --}}
+			<!-- Phone number input-->
+
+
+			<!-- Submit success message-->
+			<!---->
+			<!-- This is what your users will see when the form-->
+			<!-- has successfully submitted-->
+
+			
+				
+
+
+			
+
+			<div class="d-none" id="submitSuccessMessage">
+				<div class="text-center mb-3">
+					<div class="fw-bolder">Form submission successful!</div>
+					To activate this form, sign up at
+					<br />
+				</div>
+			</div>
+			<!-- Submit error message-->
+			<!---->
+			<!-- This is what your users will see when there is-->
+			<!-- an error submitting the form-->
+			<div class="d-none" id="submitErrorMessage">
+				<div class="text-center text-danger mb-3">Error sending message!</div>
+			</div>
+			<!-- Submit Button-->
+
+			{{!-- <div class="d-grid"><button class="btn btn-primary btn-lg " id="event_submit"
+					type="button">Submit</button></div> --}}
+			<div class="row justify-content-between mt-3"><button class="btn btn-primary btn-lg" id="event_submit"
+					type="submit">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<button class="btn btn-primary btn-lg" id="event_cancel" type="button">Cancel</button>
+			</div>     
+
+		</form>
+	</div>
+
+	{{!-- <div class="my-3 p-3 bg-body rounded shadow-sm">
+		<h6 class="border-bottom pb-2 mb-0">Suggestions</h6>
+		<div class="d-flex text-muted pt-3">
+			<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+				xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+				preserveAspectRatio="xMidYMid slice" focusable="false">
+				<title>Placeholder</title>
+				<rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff"
+					dy=".3em">32x32</text>
+			</svg>
+
+			<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+				<div class="d-flex justify-content-between">
+					<strong class="text-gray-dark">Full Name</strong>
+					<a href="#">Follow</a>
+				</div>
+				<span class="d-block">@username</span>
+			</div>
+		</div>
+		<div class="d-flex text-muted pt-3">
+			<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+				xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+				preserveAspectRatio="xMidYMid slice" focusable="false">
+				<title>Placeholder</title>
+				<rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff"
+					dy=".3em">32x32</text>
+			</svg>
+
+			<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+				<div class="d-flex justify-content-between">
+					<strong class="text-gray-dark">Full Name</strong>
+					<a href="#">Follow</a>
+				</div>
+				<span class="d-block">@username</span>
+			</div>
+		</div>
+		<div class="d-flex text-muted pt-3">
+			<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
+				xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+				preserveAspectRatio="xMidYMid slice" focusable="false">
+				<title>Placeholder</title>
+				<rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff"
+					dy=".3em">32x32</text>
+			</svg>
+
+			<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+				<div class="d-flex justify-content-between">
+					<strong class="text-gray-dark">Full Name</strong>
+					<a href="#">Follow</a>
+				</div>
+				<span class="d-block">@username</span>
+			</div>
+		</div>
+		<small class="d-block text-end mt-3">
+			<a href="#">All suggestions</a>
+		</small>
+	</div> --}}
+</section>

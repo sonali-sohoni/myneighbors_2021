@@ -1,0 +1,50 @@
+<section class="py-3 vh-100"   id="features">
+  <div class="container px-5 my-5 ">
+    <div class="row gx-5" >
+      {{!-- <a href="/createPost"> &larr; Back to Your Posts</a> --}}
+      <div class="card-body"><br><br><br>
+      
+        <h4 class=" bg-transparent border-success h4 text-primary">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#DCAE1D" class="bi bi-signpost-2-fill flex-shrink-0 me-2 rounded " viewBox="0 0 16 16">
+  <path d="M7.293.707A1 1 0 0 0 7 1.414V2H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5v1H2.5a1 1 0 0 0-.8.4L.725 8.7a.5.5 0 0 0 0 .6l.975 1.3a1 1 0 0 0 .8.4H7v5h2v-5h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H9V6h4.5a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.3 2.4a1 1 0 0 0-.8-.4H9v-.586A1 1 0 0 0 7.293.707z"/>
+</svg> Edit Post </br></br>
+        </h4>
+          <div class="form-floating mb-3"> 
+            <h1 class="h5 mb-2  lh-1 text-left event-mgr-header" >Post Title</h1>
+            <input name="post-title" class="form-control" width="3rem " type="text" value="{{post.title}}" />
+
+          </div>
+          <div>
+
+            <div>
+               <h1 class="h5 mb-2  lh-1 text-left event-mgr-header" >Post Details</h1>
+              <textarea id="post-details"  style="height: 7rem" class= "form-control"name="post-details">{{post.post_details}}</textarea>
+              <br>
+             
+            </div>
+
+
+          </div>
+          <br><br>
+          <button type="submit" class="btn btn-primary btn-lg" onclick="editFormHandler(event)" style="margin-left: 40%;">  Save post</button>
+          {{!-- <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br> --}}
+
+          
+    </div>
+  </div>
+</section>
+<script src="/javascript/edit-post.js"></script>
+{{!--
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script> --}}

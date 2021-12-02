@@ -1,0 +1,84 @@
+<section class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+    <div class="lh-1">
+      <h1 class="h5 mb-0 text-center lh-1 event-mgr-header text-primary">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#DCAE1D" class="bi bi-signpost-2-fill flex-shrink-0 me-2 rounded " viewBox="0 0 16 16">
+  <path d="M7.293.707A1 1 0 0 0 7 1.414V2H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5v1H2.5a1 1 0 0 0-.8.4L.725 8.7a.5.5 0 0 0 0 .6l.975 1.3a1 1 0 0 0 .8.4H7v5h2v-5h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H9V6h4.5a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.3 2.4a1 1 0 0 0-.8-.4H9v-.586A1 1 0 0 0 7.293.707z"/>
+</svg>
+        Create New Post</h1>
+    </div>
+  </div>
+
+
+  <div class="col-lg-8 col-xl-6 bg-purple rounded shadow-sm">
+    <h1 class="h5 mb-2  lh-1 text-left event-mgr-header">
+      
+      Title</h1>
+
+    <form id="eventform" name="eventform" class="new-post-form">
+      <div class="form-floating mb-3">
+        <label for="post-title"></label>
+        <input type="text" id="post-title" name="post-title" class="form-control" />
+      </div>
+
+      <div class="form-floating mb-4">
+        <h1 class="h5 mb-2  lh-1 text-left event-mgr-header">Post Details</h1>
+
+        <textarea class="form-control" style="height: 7rem" id="post-url" name="post-url"></textarea>
+
+      </div>
+      <div class="col-md-3 text-center">
+        {{!-- <a class="btn btn-primary text-light" id="viewEventsButton"> --}}
+          <button type="submit" class="btn btn-primary text-light" style="margin-left: 200%;" onclick="newFormHandler(event)">Create</button></a>
+        <br>
+        <br>
+      </div>
+    </form>
+  </div>
+  {{!-- getting userId --}}
+  <input type="hidden" id="user_id" value={{user_id}}>
+
+
+  {{!-- If user has posts --}}
+  {{#if posts.length}}
+
+  <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+    <div class="lh-1">
+      <h1 class="h5 mb-0 text-center lh-1 event-mgr-header">Your Posts</h1>
+    </div>
+  </div>
+  
+<div class="container">
+  <div class="row">
+    {{#each posts}}
+    <div class="col-sm">
+      <input type="hidden" id="post_id" value={{id}}>
+      <div class="card" style="width: 18rem;">
+       
+        <div class="card-body">
+          <h4 class="card-header" style="color:burlywood">{{title}}</h4>
+          <p class="card-text"style="font-weight:bold"> {{post_details}}</p>
+          <p class="card-text" >has {{comment_count}} comment</p>
+          <p class="card-text" >By YouOn {{format_date created_at}}</p>  
+          
+
+        </div>
+        
+        <div class="card-body">
+          <button type="submit" class="btn btn-primary addCommentBtn" data-post-id="{{id}}" onclick="addCommentBtn(this)">Add
+            comment</button>
+          <button type="button" class="btn btn-primary editPostBtn" data-post-id="{{id}}" onclick="editPosttBtn(this)">Edit post</button>
+          {{!-- <button type="button" class="btn btn-primary deletePostBtn">Delete post</button> --}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{/if}}
+  </div>
+</div>
+
+</section>
+
+
+<script src="/javascript/add-post.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

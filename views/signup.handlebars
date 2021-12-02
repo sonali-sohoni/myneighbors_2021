@@ -1,0 +1,168 @@
+<section class="py-5">
+	<div class="container px-5">
+		<!-- signup form-->
+		<div class="rounded-3 py-5 px-4 px-md-5 mb-5 border border-warning">
+			<div class="text-center mb-5">
+				<div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
+						class="bi bi-person-plus-fill"
+					></i></div><div class="signup-header rounded-3 text-center">
+					<h1 class="fw-bolder">New User SignUp</h1>
+					<p class="lead fw-normal text-muted mb-0">Please fill up the form to
+						access your community portal</p></div>
+			</div>
+
+			<div class="row gx-5 justify-content-center">
+				<div class="col-lg-8 col-xl-6">
+					<div class="invalid-feedback"></div>
+					<form id="signupform">
+						<!-- Name input-->
+						<div class="form-floating mb-3">
+							<input
+								class="form-control"
+								id="first_name"
+								type="text"
+								placeholder="Enter your first name..."
+							/>
+							<label for="first_name">First name</label>
+
+						</div>
+						<div class="form-floating mb-3">
+							<input
+								class="form-control"
+								id="last_name"
+								type="text"
+								placeholder="Enter your last name..."
+							/>
+							<label for="last_name">Last name</label>
+
+							{{! address }}
+						</div>
+						<div class="form-floating mb-3">
+							<input
+								class="form-control"
+								id="address"
+								type="text"
+								placeholder="Enter your last name..."
+							/>
+							<label for="address">Address</label>
+
+						</div>
+						<div class="form-floating mb-3">
+							<input
+								class="form-control"
+								id="city"
+								type="text"
+								placeholder="Enter the City."
+							/>
+							<label for="city">City</label>
+
+						</div>
+						<div class="form-floating mb-3">
+							<input
+								class="form-control"
+								id="state"
+								type="text"
+								placeholder="Enter the State"
+							/>
+							<label for="state">State</label>
+
+						</div>
+
+						<div class="form-floating mb-3">
+							<input
+								class="form-control"
+								id="zip"
+								type="text"
+								placeholder="Enter the Zip Code"
+							/>
+							<label for="zip">Zip</label>
+
+						</div>
+						<!-- Email address input-->
+						<div class="form-floating mb-3">
+							<input
+								class="form-control"
+								id="email"
+								type="email"
+								placeholder="name@example.com"
+								value=""
+							/>
+							<label for="email">Email address</label>
+
+							{{! <div class="invalid-feedback" data-sb-feedback="email:required">An
+								email is required.</div>
+							<div class="invalid-feedback" data-sb-feedback="email:email">Email
+								is not valid.</div> }}
+						</div>
+						<!-- Phone number input-->
+						<div class="form-floating mb-3">
+							<input
+								class="form-control"
+								id="password"
+								type="password"
+								placeholder="password"
+								value=""
+							/>
+							<label for="password">Password</label>
+
+						</div>
+
+						<div class="form-floating mb-3">
+							<select
+								id="neighborhood_select"
+								class="form-select form-select-md mb-3"
+							>
+								<option value="0" selected> Select Neighborhood </option>
+								{{#each neighborhoods as |n|}}
+									<option value="{{n.id}}">{{n.neighborhood_name}}</option>
+								{{/each}}
+							</select>
+
+						</div>
+
+						<!-- Submit success message-->
+						<!---->
+						<!-- This is what your users will see when the form-->
+						<!-- has successfully submitted-->
+						{{! <div class="d-none" id="submitSuccessMessage">
+							<div class="text-center mb-3">
+								<div class="fw-bolder">Form submission successful!</div>
+								To activate this form, sign up at
+								<br />
+								<a
+									href="https://startbootstrap.com/solution/contact-forms"
+								>https://startbootstrap.com/solution/contact-forms</a>
+							</div>
+						</div> }}
+						<!-- Submit error message-->
+						<!---->
+						<!-- This is what your users will see when there is-->
+						<!-- an error submitting the form-->
+						<div class="d-none" id="submitErrorMessage"><div
+								class="text-center text-danger mb-3"
+							>Error sending message!</div></div>
+						<!-- Submit Button-->
+						{{! <button type="button" 
+							type="button"
+							class="btn btn-primary btn-lg"
+							id="submitButton"
+							value="Submit"
+						/> </button> }}
+						<div class="row justify-content-between mt-3"><button
+								class="btn btn-primary btn-lg"
+								id="submitButton"
+								type="submit"
+							>Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+							<button
+								class="btn btn-primary btn-lg"
+								id="CancelButton"
+								type="button"
+							>Cancel</button></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script src="/javascript/signup.js"></script>

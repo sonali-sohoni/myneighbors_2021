@@ -1,0 +1,234 @@
+<!-- Header-->
+<div class="heroContainer">
+	<header class="hero py-5">
+		<div class="container px-5">
+			<div class="row gx-5 align-items-center justify-content-center">
+				<div class="col-lg-8 col-xl-7 col-xxl-6">
+					<div class="my-5 text-center text-xl-start">
+						<h1 class="display-5 fw-bolder text-white mb-2 " id="welcome_msg_holder">Welcome To The
+							Neighborhood!
+						</h1>
+					</div>
+				</div>
+
+				{{! login-form }}
+				<div class="col-xl-5 col-xxl-6 d-xl-block text-center">
+					<div class="col-md-7">
+						<div class="card-body loginDiv">
+							{{#if loggedIn}}
+							<input type ="hidden" id="neighborhood_id_hidden" value={{neighborhood_id}}>
+							{{else}}
+							<p class="lead fw-bold mb-4 login-card-description">Sign in to
+								View Community Posts </p>
+							{{! <p class="">Sign into your account</p> }}
+							<form action="#!">
+								<div class="form-group">
+									<label for="email" class="sr-only">Email</label>
+									<input type="email" name="email" id="email" class="form-control"
+										placeholder="Email address" onfocus="" />
+								</div>
+								<div class="form-group mb-4">
+									<label for="password" class="sr-only">Password</label>
+									<input type="password" name="password" id="password" class="form-control"
+										placeholder="***********" />
+								</div>
+								<input name="login" id="login" class="btn btn-block login-btn mb-4" type="button"
+									value="Login" />
+							</form>
+							<div id='errMsg' style="font-weight:bold;color:red"></div>
+							<p class="login-card-footer-text">Don't have an account?
+								<a href="/signup" class="text-reset">Register here</a>
+							</p>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+</div>
+
+<section class="py-3" id="features">
+	<div class="container px-5 my-5 rounded shadow-sm bg-purple">
+		<div class="row gx-5">
+			<div class="col-lg-4 mb-5 mb-lg-0">
+				<h2 class="fw-bolder mb-0">Neighborhood Events</h2>
+			</div>
+			<div class="col-lg-8">
+				<!--event card container-->
+				<div class="row gx-5 row-cols-1 row-cols-md-2 justify-content-between" id="eventCardContainer">
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!--------------------------------------->
+
+<!----------------------------------------->
+<section class="py-3" id="features">
+	<div class="container px-5 my-5 rounded shadow-sm bg-purple">
+		<div class="row gx-5">
+			{{#if loggedIn}}
+			<div class="col-lg-4 mb-5 mb-lg-0"><!--left column -->
+				<h2 class="fw-bolder mb-3">Neighborhood Posts</h2>
+					<p>Pick a date range to see posts within a range</p>
+					 
+				<div class="fw-bolder mb-3">		<input
+					type="text"
+					id="from_post_date"
+					placeholder="From Date"
+					autocomplete="off"
+				/></div>
+			<div class="fw-bolder mb-3">		<input
+					type="text"
+					id="to_post_date"
+					placeholder="To Date"
+					autocomplete="off"
+				/></div>
+				 <div class="text-left">
+				<a class="btn btn-primary text-light" id="viewPostButton">View Posts</a></div>
+			</div>
+
+				{{/if}}
+			<div class="col-lg-8"> 
+				<!--event card container-->
+				<div class="row gx-6  justify-content-between" id="postsContainer">
+
+
+{{#if loggedIn}}
+{{#each posts}}
+		{{!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-signpost-2-fill" viewBox="0 0 16 16">
+  <path d="M7.293.707A1 1 0 0 0 7 1.414V2H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5v1H2.5a1 1 0 0 0-.8.4L.725 8.7a.5.5 0 0 0 0 .6l.975 1.3a1 1 0 0 0 .8.4H7v5h2v-5h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H9V6h4.5a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.3 2.4a1 1 0 0 0-.8-.4H9v-.586A1 1 0 0 0 7.293.707z"/>
+</svg> --}}
+  {{!-- <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg> --}}
+ <div class="d-flex text-muted pt-3"> 
+      {{!-- <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg> --}}
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#dcae1d" class="bi bi-signpost-2-fill flex-shrink-0 me-2 rounded " viewBox="0 0 16 16">
+  <path d="M7.293.707A1 1 0 0 0 7 1.414V2H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5v1H2.5a1 1 0 0 0-.8.4L.725 8.7a.5.5 0 0 0 0 .6l.975 1.3a1 1 0 0 0 .8.4H7v5h2v-5h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H9V6h4.5a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.3 2.4a1 1 0 0 0-.8-.4H9v-.586A1 1 0 0 0 7.293.707z"/>
+</svg><a href="/post/{{id}}" style="text-decoration: none;" >  
+      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+        <div class="d-flex justify-content-between align-items-center"><p>
+       <strong class="text-primary fw-bold">{{title}}</strong></p>
+
+        
+        </div>
+						<div class="text-dark-gray fw-bold">{{post_details}}</div>
+       <div>&nbsp;</div>
+			  <div class="d-block text-warning fw-bold">By {{user.first_name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{format_date created_at}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{comment_count}} comment(s)</div>
+      </div></a>
+    </div>
+
+{{/each}}
+{{/if}}
+
+</div></div>
+</div>
+	</div></section>
+
+
+
+<!-- sonali code-->
+       {{!-- <div class="d-flex mb-4">
+        <!-- Parent comment-->
+        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+         <div class="ms-3">
+         <div class="fw-bold">Commenter Name</div>
+                                                If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+                                                <!-- Child comment 1-->
+                                                <!-- Child comment 2-->
+                                            
+                                            </div>
+                                        </div>
+																							{{/each}}
+{{/if}}
+</div>
+</div>
+</div>
+				</div>
+				</div>
+		</div>
+		</section> --}}
+
+		<!-- sonali code-->
+
+
+
+
+
+
+		{{!-- <div class="card " style="width:90rem;">
+					<div class="card-body">
+						<p class="card-header bg-transparent border-success h4" style="color:cornflowerblue;font-size:25 ">
+							<a href="/post/{{id}}" style="text-decoration: none;" >{{title}}</a></p>
+							<br>
+						<p class="card-text h5" > {{post_details}}</p>
+						
+						<br><br>
+						<div class="card-footer">
+							<p class="card-text">By {{user.first_name}} On {{format_date created_at}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{comment_count}} comment(s)</p>
+							
+						</div> --}}	
+
+						{{!-- <small class="text-muted">Last updated 3 mins ago</small> --}}
+					{{!-- </div>
+				</div> --}}
+			{{!-- </div> --}}
+{{!-- 			
+			{{/each}}
+{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+</section> --}}
+
+<!---------------------------------------------->
+{{!-- Posts --}}
+{{!-- <section class="py-3" id="features">
+	<div class="container px-5 my-5">
+		<div class="row gx-5">
+			<div class="col-lg-4 mb-5 mb-lg-0">
+	{{#if loggedIn}}
+	<div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+		<div class="lh-1">
+			<h1 class="h5 mb-0 text-center lh-1 event-mgr-header ">Community Posts:</h1>
+		</div>
+	</div> --}}
+
+	{{!-- <div class="container">
+		<div class="row">
+			{{#each posts}}
+			<div class="col">
+				<div class="card " style="width:60rem;">
+					<div class="card-body">
+						<p class="card-header bg-transparent border-success" style="color:cornflowerblue;font-size:30 ">
+							<a href="/post/{{id}}" style="text-decoration: none;" >{{title}}</a></p>
+						<p class="card-text" style="font-size:20"> {{post_details}}</p>
+						
+						<br><br>
+						<div class="card-footer">
+							<p class="card-text">By {{user.first_name}} On {{format_date created_at}}</p>
+							<p class="card-text"> {{comment_count}} comment</p>
+						</div>
+
+						{{!-- <small class="text-muted">Last updated 3 mins ago</small> --}}
+					</div>
+				</div>
+			</div>
+			
+			{{!-- {{/each}} --}}
+
+			{{!-- {{/if}} --}}
+{{!-- 
+		</div>
+	</div> --}} 
+
+	
+
+</main>
+<script src="javascript/login.js"></script>
