@@ -10,7 +10,7 @@ require("dotenv").config();
 //**//const credentials = new SmartyStreetsCore.StaticCredentials(authId, authToken);
 const credentials = new SmartyStreetsCore.StaticCredentials(
 	process.env.SS_AUTH_ID,
-	process.env.SS_AUTH_ID_SS_TOKEN
+	process.env.SS_TOKEN
 );
 let client = SmartyStreetsCore.buildClient.usStreet(credentials);
 // let client = clientBuilder.buildUsStreetApiClient();
