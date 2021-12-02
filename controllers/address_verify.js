@@ -2,16 +2,16 @@ const sssdk = require("smartystreets-javascript-sdk");
 const SmartyStreetsCore = sssdk.core;
 const Lookup = sssdk.usStreet.Lookup;
 require("dotenv").config();
-//let authId = "d66b03f4-737b-002b-ed37-b9a9c1989b3e";
-//let authToken = "MiuqCcCYwQdz2015keTl";
+let authId = "d66b03f4-737b-002b-ed37-b9a9c1989b3e";
+let authToken = "MiuqCcCYwQdz2015keTl";
 // let clientBuilder = new SmartyStreetsCore.ClientBuilder(credentials)
 // 	.withBaseUrl("YOUR URL")
 // 	.withLicenses(["us-rooftop-geocoding-cloud"]);
-//**//const credentials = new SmartyStreetsCore.StaticCredentials(authId, authToken);
-const credentials = new SmartyStreetsCore.StaticCredentials(
-	process.env.SS_AUTH_ID,
-	process.env.SS_TOKEN
-);
+const credentials = new SmartyStreetsCore.StaticCredentials(authId, authToken);
+// const credentials = new SmartyStreetsCore.StaticCredentials(
+// 	process.env.SS_AUTH_ID,
+// 	process.env.SS_TOKEN
+// );
 let client = SmartyStreetsCore.buildClient.usStreet(credentials);
 // let client = clientBuilder.buildUsStreetApiClient();
 
